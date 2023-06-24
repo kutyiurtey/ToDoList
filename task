@@ -1,0 +1,42 @@
+class Task:
+    def __init__(self, description, due_date, priority):
+        self.description = description
+        self.due_date = due_date
+        self.priority = priority
+
+    def display_task(self):
+        print(f"Description: {self.description}")
+        print(f"Due Date: {self.due_date}")
+        print(f"Priority: {self.priority}")
+        print()
+
+class ToDoList:
+    def __init__(self, name):
+        self.name = name
+        self.tasks = []
+
+    def add_task(self, task):
+        self.tasks.append(task)
+
+    def display_tasks(self):
+        if not self.tasks:
+            print("No tasks in the to-do list.")
+        else:
+            print(f"To-Do List: {self.name}")
+            print("Tasks:")
+            for task in self.tasks:
+                task.display_task()
+
+if __name__ == '__main__':
+    to_do_list = ToDoList("My To-Do List")
+
+    task1 = Task("Finish report", "2023-06-30", "High")
+    to_do_list.add_task(task1)
+
+    task2 = Task("Buy groceries", "2023-06-26", "Medium")
+    to_do_list.add_task(task2)
+
+    task3 = Task("Call mom", "2023-06-28", "Low")
+    to_do_list.add_task(task3)
+
+    to_do_list.display_tasks()
